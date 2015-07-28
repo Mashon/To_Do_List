@@ -1,0 +1,29 @@
+
+<p id="notice"><%= notice %></p>
+<div class="all">
+
+<div class="header">
+<h1>Listing Todo Items</h1>
+</div>
+
+
+<div class="main">
+    <% @todo_items.each do |todo_item| %>
+
+      <div class="list">
+        <p>
+          <input type="checkbox">
+          <span class="user_input"><%= todo_item.description %></span>&nbsp;&nbsp;&nbsp;
+          <span class="show"><%= link_to '<i class="fa fa-eye"></i>'.html_safe, todo_item %></span>&nbsp;&nbsp;&nbsp;
+          <span class="edit"><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_todo_item_path(todo_item) %></span>&nbsp;&nbsp;&nbsp;
+          <span class="delete"><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </p>
+      </div>
+<% end %>
+
+
+
+<div class="add_new">
+<%= link_to 'Add new item', new_todo_item_path %>
+</div>
+</div>
